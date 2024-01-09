@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="border-2 border-black flex h-full">
+    <div className=" flex h-full">
       <Navbar />
       <Dashboard />
     </div>

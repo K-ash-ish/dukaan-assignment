@@ -1,5 +1,4 @@
 import logo from "../assets/logo.svg";
-import chevron from "../assets/chevron.svg";
 import wallet from "../assets/wallet.svg";
 import orders from "../assets/orders.svg";
 import product from "../assets/product.svg";
@@ -15,52 +14,78 @@ import plugins from "../assets/plugins.svg";
 import home from "../assets/home.svg";
 
 import NavItem from "./ui/NavItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
   const navItems = [
-    { itemName: "Home", to: "/", icon: <img src={home} alt="home-icon" /> },
-    { itemName: "Orders", to: "/", icon: <img src={orders} alt="home-icon" /> },
     {
+      active: false,
+      itemName: "Home",
+      to: "/",
+      icon: <img src={home} alt="home-icon" />,
+    },
+    {
+      active: false,
+      itemName: "Orders",
+      to: "/",
+      icon: <img src={orders} alt="home-icon" />,
+    },
+    {
+      active: false,
       itemName: "Products",
       to: "/",
       icon: <img src={product} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Delivery",
       to: "/",
       icon: <img src={delivery} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Marketing",
       to: "/",
       icon: <img src={marketing} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Analytics",
       to: "/",
       icon: <img src={analytics} alt="home-icon" />,
     },
     {
+      active: true,
       itemName: "Payments",
       to: "/",
       icon: <img src={payments} alt="home-icon" />,
     },
-    { itemName: "Tools", to: "/", icon: <img src={tools} alt="home-icon" /> },
     {
+      active: false,
+      itemName: "Tools",
+      to: "/",
+      icon: <img src={tools} alt="home-icon" />,
+    },
+    {
+      active: false,
       itemName: "Discounts",
       to: "/",
       icon: <img src={discounts} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Audience",
       to: "/",
       icon: <img src={audience} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Appearance",
       to: "/",
       icon: <img src={appearance} alt="home-icon" />,
     },
     {
+      active: false,
       itemName: "Plugins",
       to: "/",
       icon: <img src={plugins} alt="home-icon" />,
@@ -79,9 +104,11 @@ function Navbar() {
               </a>
             </div>
           </div>
-          <img src={chevron} alt="" />
+          <button>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </button>
         </div>
-        <ul className="ml-8 mt-2 flex flex-col gap-3">
+        <ul className="mx-2 mt-2 flex flex-col gap-2">
           {navItems.map((item) => {
             return (
               <NavItem
@@ -89,13 +116,14 @@ function Navbar() {
                 itemName={item.itemName}
                 to={item.to}
                 icon={item.icon}
+                active={item.active}
               />
             );
           })}
         </ul>
       </div>
-      <div className="bg-[#353C53] w-48 h-14 my-4 flex justify-around items-center p-2 rounded-sm">
-        <div className="bg-white/20 p-2 rounded-md ">
+      <div className="bg-[#353C53] w-48 h-14 my-4 flex justify-around items-center p-2 rounded">
+        <div className="bg-white/20 p-2 rounded ">
           <img src={wallet} alt="" />
         </div>
         <div>
